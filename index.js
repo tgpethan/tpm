@@ -48,7 +48,10 @@ const validCommands = [
 	"tlclick", "trclick",
 
 	// Interface commands
-	"e"
+	"e",
+
+	// Hotbar keys
+	"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ]
 
 client.on("connected", (address, port) => {
@@ -214,6 +217,20 @@ client.on("chat", (channel, user, msg, self) => {
 		case "trclick":
 			rightClickState = !rightClickState;
 			robot.mouseToggle(rightClickState ? "down" : "up", "right");
+			break;
+
+		case "0":
+		case "1":
+		case "2":
+		case "3":
+		case "4":
+		case "5":
+		case "6":
+		case "7":
+		case "8":
+		case "9":
+			ks.setOption('globalDelayPressMillisec', 50);
+        	ks.sendKey(msg);
 			break;
 	}
 });
