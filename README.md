@@ -7,6 +7,6 @@ To run:
  - Run these commands:
 
 ```
-	npm i
-	node .
+npm i
+node .
 ```
