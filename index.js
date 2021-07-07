@@ -52,6 +52,7 @@ const validCommands = [
 ]
 
 client.on("connected", (address, port) => {
+	console.clear();
     console.log("======- Twitch plays Minecraft -======");
 	console.log("");
 	console.log(" - Made by Holly (C) 2021");
@@ -70,7 +71,12 @@ client.on("connected", (address, port) => {
 		if ((newMousePos[1] < 1 && newMousePos[1] > -1) || (newMousePos[1] > -1 && newMousePos[1] < 1)) newMousePos[1] = 0;
 
 		if (newMousePos[0] != 0 || newMousePos[1] != 0)
-			robot.moveMouse(mouselol.x + newMousePos[0], mouselol.y + newMousePos[1]);
+			if (
+				(mouselol.x + newMousePos[0]) > window00[0] && (mouselol.x + newMousePos[0] < (window00[0] + 1280)) &&
+				(mouselol.y + newMousePos[1]) > window00[1] && (mouselol.y + newMousePos[1]) < (window00[1] + 720)
+			) {
+				robot.moveMouse(mouselol.x + newMousePos[0], mouselol.y + newMousePos[1]);
+			}
 	}, 1000 / 24);
 });
 
@@ -79,8 +85,6 @@ client.connect();
 client.on("chat", (channel, user, msg, self) => {
 	
 	if (!validCommands.includes(msg)) return;
-
-	console.log(`[] ${user.username} ran ${msg}`);
 
 	switch (msg) {
 		case "up":
