@@ -51,7 +51,10 @@ const validCommands = [
 	"e",
 
 	// Hotbar keys
-	"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+	"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+
+	// swap hands
+	"f"
 ]
 
 client.on("connected", (address, port) => {
@@ -189,6 +192,11 @@ client.on("chat", (channel, user, msg, self) => {
 
 			ks.setOption('globalDelayPressMillisec', 50);
         	ks.sendKey("e");
+			break;
+
+		case "f":
+			ks.setOption('globalDelayPressMillisec', 50);
+        	ks.sendKey("f");
 			break;
 
 		case "lclick":
