@@ -10,3 +10,5 @@ To run:
 npm i
 node .
 ```
+
+ - Make sure you have raw input turned off in Minecraft
