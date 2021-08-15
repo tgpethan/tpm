@@ -11,4 +11,4 @@ npm i
 node .
 ```
 
- - Make sure you have raw input turned off in Minecraft
+ - Make sure you have raw input turned off in Minecraft and your game is at `1280x720`
